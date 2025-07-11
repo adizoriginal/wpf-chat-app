@@ -20,4 +20,4 @@ This is a simple chat application built using C# and WPF (Windows Presentation F
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/wpf-chat-app.git
+git clone https://github.com/adizoriginal/wpf-chat-app.git
