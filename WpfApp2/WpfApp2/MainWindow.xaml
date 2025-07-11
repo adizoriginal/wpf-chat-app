@@ -1,0 +1,77 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chat Application" Height="500" Width="800"
+        Closing="Window_Closing">
+    <Grid>
+        <TabControl>
+            <!-- Server Tab -->
+            <TabItem Header="Server">
+                <Grid Margin="10">
+                    <StackPanel>
+                        <Button Name="btnStartServer" Content="Start Server" Click="btnStartServer_Click" 
+                                Width="100" Margin="0,0,0,10"/>
+                        <ListBox Name="lstServerLog" Height="300"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Client Tab -->
+            <TabItem Header="Client">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Login Panel -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+                        <Label Content="Server IP:" VerticalAlignment="Center"/>
+                        <TextBox Name="txtServerIP" Width="120" Text="127.0.0.1" Margin="5,0"/>
+                        <Label Content="Port:" VerticalAlignment="Center"/>
+                        <TextBox Name="txtServerPort" Width="60" Text="8888" Margin="5,0"/>
+                        <Label Content="Username:" VerticalAlignment="Center"/>
+                        <TextBox Name="txtUsername" Width="100" Margin="5,0"/>
+                        <Label Content="Password:" VerticalAlignment="Center"/>
+                        <PasswordBox Name="pwdPassword" Width="100" Margin="5,0"/>
+                        <Button Name="btnLogin" Content="Login" Click="btnLogin_Click" 
+                                Width="80" Margin="5,0"/>
+                    </StackPanel>
+
+                    <!-- Chat and Online Users Panel -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <GroupBox Header="Online Users" Grid.Column="0" Margin="0,0,5,0">
+                            <ListBox Name="lstOnlineUsers"/>
+                        </GroupBox>
+
+                        <GroupBox Header="Chat" Grid.Column="1">
+                            <ListBox Name="lstChat"/>
+                        </GroupBox>
+                    </Grid>
+
+                    <!-- Progress Panel -->
+                    <StackPanel Grid.Row="2" Orientation="Vertical" Margin="0,10">
+                        <ProgressBar x:Name="transferProgress" Height="20" Minimum="0" Maximum="100"/>
+                        <TextBlock x:Name="progressText" HorizontalAlignment="Center" Margin="0,5"/>
+                    </StackPanel>
+
+                    <!-- Message Panel -->
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBox Name="txtMessage" Width="400" Margin="0,0,5,0"/>
+                        <Button Name="btnSend" Content="Send" Click="btnSend_Click" 
+                                Width="80" Margin="0,0,5,0"/>
+                        <Button Name="btnSendFile" Content="Send File" Click="btnSendFile_Click" 
+                                Width="80"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
